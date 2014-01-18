@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:screenOrientation="portrait"
     tools:context=".MainActivity" >
 
     <Button
@@ -16,10 +17,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="93dp"
         android:onClick="start"
-        android:text="Start" />
+        android:text="@string/startButton" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/noOfQuestionEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/start"
@@ -27,7 +28,7 @@
         android:layout_marginTop="43dp"
         android:layout_toRightOf="@+id/start"
         android:ems="10"
-        android:text="10"
+        android:text="@string/defaultNoOfQuestion"
         android:inputType="number" >
 
         <requestFocus />
@@ -37,53 +38,53 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editText1"
-        android:layout_alignBottom="@+id/editText1"
+        android:layout_alignBaseline="@+id/noOfQuestionEditText"
+        android:layout_alignBottom="@+id/noOfQuestionEditText"
         android:layout_alignRight="@+id/start"
         android:layout_marginRight="15dp"
-        android:text="Number of question: "
+        android:text="@string/number_of_question_text"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editText3"
-        android:layout_alignBottom="@+id/editText3"
+        android:layout_alignBaseline="@+id/maximumEditText"
+        android:layout_alignBottom="@+id/maximumEditText"
         android:layout_alignLeft="@+id/textView2"
-        android:text="Maximum of operand: "
+        android:text="@string/maximum_of_operand_text"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editText2"
-        android:layout_alignBottom="@+id/editText2"
+        android:layout_alignBaseline="@+id/minimumEditText"
+        android:layout_alignBottom="@+id/minimumEditText"
         android:layout_alignLeft="@+id/textView1"
-        android:text="Minimum of operand: "
+        android:text="@string/minimum_of_operand_text"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/minimumEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/editText1"
+        android:layout_alignLeft="@+id/noOfQuestionEditText"
+        android:layout_below="@+id/noOfQuestionEditText"
         android:layout_marginTop="36dp"
         android:ems="10"
-        android:text="1"
+        android:text="@string/minimin_operand_text"
         android:inputType="number" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/maximumEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_below="@+id/editText2"
+        android:layout_alignLeft="@+id/minimumEditText"
+        android:layout_below="@+id/minimumEditText"
         android:layout_marginTop="34dp"
         android:ems="10"
-        android:text="50"
+        android:text="@string/maximum_operand"
         android:inputType="number" />
 
 </RelativeLayout>

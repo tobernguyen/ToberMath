@@ -3,6 +3,7 @@ package com.bigs.tobermath;
 import java.util.Random;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,6 +16,8 @@ public class GamePlay extends Activity {
 	// Initiate point and correctButt (for Correct Button ID)
 	String correctButt = new String();
 	int point = 0;
+	int minInt = 1;
+	int maxInt = 10;
 	int n = 10;
 	int i = 1;
 
@@ -24,6 +27,11 @@ public class GamePlay extends Activity {
 		setContentView(R.layout.activity_game_play);
 
 		// Start game first time
+		Bundle setting = getIntent().getExtras();
+		n = setting.getInt("noOfQuest");
+		minInt = setting.getInt("min");
+		maxInt = setting.getInt("max");
+
 		showQuestion(n);
 
 	}
@@ -36,7 +44,7 @@ public class GamePlay extends Activity {
 	}
 
 	// Display expression and button
-	void showQuestion(int n){
+	void showQuestion(int n) {
 
 		// Clear Congrats text
 		TextView congrats = (TextView) findViewById(R.id.congrats);
@@ -49,13 +57,12 @@ public class GamePlay extends Activity {
 			questionNum.setText("Question: " + i + "/" + n);
 
 			// Create expression view
-			int result = expressGen(50, 100);
+			int result = expressGen(minInt, maxInt);
 
 			// Generate button for possible answer
 			correctButt = buttonGen(result);
 			i++;
-		}
-		else {
+		} else {
 			Bundle data = new Bundle();
 			data.putInt("correctAnswer", point);
 			data.putInt("numberOfQuestion", n);
@@ -139,46 +146,70 @@ public class GamePlay extends Activity {
 	}
 
 	public void butt1(View view) {
-		TextView congrats = (TextView) findViewById(R.id.congrats);
-		if (correctButt.equals("button1")){
+
+		if (correctButt.equals("button1")) {
 			point++;
-			congrats.setText("CORRECT!!!");}
-		else
-			congrats.setText("INCORRECT ANSWER!!!");
-		keepPlaying(n);
+			showResultDialog(true);
+		} else
+			showResultDialog(false);
 	}
 
 	public void butt2(View view) {
-		TextView congrats = (TextView) findViewById(R.id.congrats);
-		if (correctButt.equals("button2")){
+
+		if (correctButt.equals("button2")) {
 			point++;
-			congrats.setText("CORRECT!!!");}
-		else
-			congrats.setText("INCORRECT ANSWER!!!");
-		keepPlaying(n);
+			showResultDialog(true);
+		} else
+			showResultDialog(false);
 	}
 
 	public void butt3(View view) {
-		TextView congrats = (TextView) findViewById(R.id.congrats);
-		if (correctButt.equals("button3")){
+		if (correctButt.equals("button3")) {
 			point++;
-			congrats.setText("CORRECT!!!");}
-		else
-			congrats.setText("INCORRECT ANSWER!!!");
-		keepPlaying(n);
+			showResultDialog(true);
+		} else
+			showResultDialog(false);
 	}
 
 	public void butt4(View view) {
-		TextView congrats = (TextView) findViewById(R.id.congrats);
-		if (correctButt.equals("button4")){
+		if (correctButt.equals("button4")) {
 			point++;
-			congrats.setText("CORRECT!!!");}
-		else
-			congrats.setText("INCORRECT ANSWER!!!");
-		keepPlaying(n);
+			showResultDialog(true);
+		} else
+			showResultDialog(false);
+
 	}
 
 	void keepPlaying(int n) {
 		showQuestion(n);
+	}
+
+	//Dialog for Correct and Incorrect result after each question
+	void showResultDialog(boolean check) {
+		final Dialog dialog = new Dialog(this);
+
+		dialog.setContentView(R.layout.custom_dialog);
+		dialog.setTitle("RESULT");
+		dialog.setCancelable(false);
+		Button OK = (Button) dialog.findViewById(R.id.OK);
+
+		OK.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				dialog.cancel();
+				keepPlaying(n);
+			}
+
+		});
+
+		TextView resultText = (TextView) dialog.findViewById(R.id.resultPopup);
+
+		if (check)
+			resultText.setText("CORRECT!");
+		else
+			resultText.setText("INCORRECT ANSWER!");
+
+		dialog.show();
 	}
 }

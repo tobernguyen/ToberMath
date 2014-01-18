@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:screenOrientation="portrait"
     tools:context=".ResultDisplay" >
 
     <TextView
@@ -16,5 +17,4 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
 </RelativeLayout>

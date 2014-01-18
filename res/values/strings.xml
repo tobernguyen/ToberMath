@@ -3,8 +3,15 @@
 
     <string name="app_name">Tober Math</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_game_play">GamePlay</string>
-    <string name="title_activity_result_display">ResultDisplay</string>
+    <string name="title_activity_game_play">Play</string>
+    <string name="title_activity_result_display">Result</string>
+    <string name="startButton">Start</string>
+    <string name="defaultNoOfQuestion">10</string>
+    <string name="number_of_question_text">"Number of question: "</string>
+    <string name="maximum_of_operand_text">"Maximum of operand: "</string>
+    <string name="minimum_of_operand_text">"Minimum of operand: "</string>
+    <string name="minimin_operand_text">1</string>
+    <string name="maximum_operand">50</string>
+    <string name="ok_button">OK</string>
 
 </resources>
